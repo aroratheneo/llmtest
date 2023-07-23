@@ -4,7 +4,7 @@ import os
 import openai
 
 # Add actual API Key
-openai.api_key ="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"
+openai.api_key ="sk-<actual key>"
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
