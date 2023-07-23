@@ -1,0 +1,30 @@
+# importing required modules
+import PyPDF2
+import os
+# creating a pdf file object
+pdfFileObj = open('Source\\CGMC-Report-2023-04.pdf', 'rb')
+
+# creating a pdf reader object
+pdfReader = PyPDF2.PdfReader(pdfFileObj)
+
+# printing number of pages in pdf file
+totalpages =  len(pdfReader.pages)
+
+with open(os.path.join("Destination", f"PyPDF2_CGMC-Report-2023-04.txt"),
+                "a",
+                encoding="utf-8") as text_file:
+    currentPage = 0
+    while currentPage < totalpages:
+
+
+        # creating a page object
+        pageObj = pdfReader.pages[currentPage]
+        currentPage += 1
+
+        
+        text_file.write(pageObj.extract_text())
+        # extracting text from page
+        print(pageObj.extract_text())
+
+# closing the pdf file object
+pdfFileObj.close()

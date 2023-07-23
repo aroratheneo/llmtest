@@ -4,7 +4,7 @@ import os
 import openai
 
 # Add actual API Key
-openai.api_key ="sk-**************"
+openai.api_key ="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"
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
@@ -119,7 +119,10 @@ HEDGE FUND COMPOSI"""
 
 prompt = f"""
 Extract performance returns percentages in text delimited by triple backticks \ 
-Provide them in csv format with year and Months as headers
+1. Provide them in csv format with year and Months as headers
+2. Extract returns for Benchmarks like S&P 500
+3. Share details about the strategy 
+4. Share contact information with email address
 ```{text}```
 """
 response = get_completion(prompt)
